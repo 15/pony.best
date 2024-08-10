@@ -1,0 +1,95 @@
+---
+import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
+import ss from "../assets/screenshot.jpg";
+---
+
+<div class="credits absolute" id="about-page" style="visibility: hidden;">
+  <div
+    class="flex items-center justify-center max-w-screen max-h-screen w-screen h-screen bg-white"
+    style="
+    background-image: url('/bg/367040.avif'); background-repeat: no-repeat; background-size: cover; background-position: top center;
+            transform-origin: right top;"
+  >
+    <div
+      id="card-credits"
+      style="filter: drop-shadow(0 5px 5px #000)"
+      class="w-11/12 lg:w-288 px-4 py-4 lg:p-8 flex flex-col gap-y-4 justify-center items-center bg-white z-10 rounded border-[#243870] border-[8px] -rotate-1"
+    >
+      <Icon
+        name="mdi:close"
+        class="z-50 close absolute lg:top-4 lg:left-4 top-2 left-2 text-4xl lg:text-6xl text-[#132248] cursor-pointer hover:bg-[#CC9CDF] rounded duration-300"
+      />
+      <div class="flex flex-col items-center w-full lg:w-1/2 relative">
+        <!-- <div class="text-7xl mb-4 uppercase font-semibold tracking-wide">
+          About
+        </div> -->
+        <Image
+          width={400}
+          src={ss}
+          format="avif"
+          alt="pony.best on laptop"
+          class="lg:mt-0 mt-8 relative border-2 shadow-2xl rounded border-black w-2/3 lg:w-auto h-auto lg:h-80"
+          id="screenshot"
+        />
+        <div
+          class="mt-6 lg:mt-8 text-2xs lg:text-sm flex flex-col gap-y-2 tracking-wide"
+          id="description"
+        >
+          <p>
+            This website was conceived out of a self-imposed web dev challenge I
+            undertook over the weekend: within 48 hours, design and implement a
+            creative website in honor of the best pony. I set the following base
+            rules for this exercise:
+          </p>
+          <ul class="list-decimal ml-4 lg:ml-8">
+            <li>
+              No external human assistance is allowed. This includes asking
+              artists to draw <span class="italic">anything</span> for me, even something
+              as trivial as a sketch; all art assets used must be found on the Internet
+              or made from scratch.
+            </li>
+            <li>
+              The desktop view must be fully complete within 48 hours of
+              starting. The timer starts when brainstorming begins. Mobile and
+              tablet styling do not count towards this time limit.
+            </li>
+            <li>
+              Use as little JavaScript as possible. The vast majority of the
+              website should rely on CSS animations to offer an engaging
+              experience, and JavaScript should only be used when absolutely
+              necessary.
+            </li>
+            <li>The end result must be worthy of honoring the best pony!</li>
+          </ul>
+          <p>
+            Overall, this was a very entertaining challenge that really required
+            me to think outside the box on multiple occasions. In addition, I
+            came up with several scrapped ideas that I plan to use in the future
+            for other projects. I hope to do something like this again soon!
+          </p>
+          <div class="mt-2">
+            <p class="text-xl lg:text-2xl text-center">&ndash;15</p>
+            <p class="text-xs lg:text-sm text-center">
+              Last updated June 2, 2024, 7:28 PM PST
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style lang="scss">
+  @keyframes profile-page__jump-card {
+    0% {
+      transform: scale(0) rotate(-1deg);
+    }
+    50% {
+      transform: scale(1.1) rotate(-1deg);
+    }
+    100% {
+      transform: scale(1) rotate(-1deg);
+    }
+  }
+</style>

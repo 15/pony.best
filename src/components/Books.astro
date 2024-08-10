@@ -1,0 +1,209 @@
+---
+import { Icon } from "astro-icon/components";
+import Book from "../components/Book.astro";
+
+import img1 from "../assets/books/poker.jpg";
+import img2 from "../assets/books/reassess.jpg";
+import img3 from "../assets/books/measure.png";
+import img4 from "../assets/books/sets.jpg";
+import img5 from "../assets/books/inference.jpg";
+import img6 from "../assets/books/game.png";
+import img7 from "../assets/books/integrals.jpg";
+import img8 from "../assets/books/rp.jpg";
+import img9 from "../assets/books/special.jpg";
+import img10 from "../assets/books/watanabe.jpg";
+import img11 from "../assets/books/hastie.jpg";
+import img12 from "../assets/books/wasserman.jpg";
+import img13 from "../assets/books/wasserman2.jpg";
+import img14 from "../assets/books/herrmann.jpg";
+import img15 from "../assets/books/needham.jpg";
+import img16 from "../assets/books/wainwright.jpg";
+import img17 from "../assets/books/wong.jpg";
+import img18 from "../assets/books/silman.jpg";
+import img19 from "../assets/books/adams.jpg";
+import img20 from "../assets/books/borwein.jpg";
+import img21 from "../assets/books/rmt.png";
+import img22 from "../assets/books/goodfellow.jpg";
+import img23 from "../assets/books/chuang.jpg";
+import img24 from "../assets/books/chen.jpg";
+import img25 from "../assets/books/pftb.jpg";
+import img26 from "../assets/books/murphy.png";
+import img27 from "../assets/books/godsil.jpg";
+import img28 from "../assets/books/sudoku.jpg";
+import img29 from "../assets/books/friedlander.jpg";
+---
+
+<div class="books absolute" id="books-page" style="visibility: hidden;">
+  <div
+    class="flex items-center justify-center max-w-screen max-h-screen w-screen h-screen bg-white"
+    style="background-image: url(/bg/2767258.avif);  background-repeat: no-repeat; background-size: cover; background-position: top center;
+          transform-origin: right top;"
+  >
+    <div
+      id="card-books"
+      style="filter: drop-shadow(0 5px 5px #000); background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/PjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuXzR4S2lCcSIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgd2lkdGg9IjY1IiBoZWlnaHQ9IjY1IiBwYXR0ZXJuVHJhbnNmb3JtPSJyb3RhdGUoNDUpIj48bGluZSB4MT0iMCIgeT0iMCIgeDI9IjAiIHkyPSI2NSIgc3Ryb2tlPSIjQ0M5Q0RGIiBzdHJva2Utd2lkdGg9IjMwIi8+PC9wYXR0ZXJuPjwvZGVmcz4gPHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuXzR4S2lCcSkiIG9wYWNpdHk9IjAuMjUiLz48L3N2Zz4=');"
+      class="w-11/12 lg:w-288 px-4 py-4 lg:p-8 flex flex-col gap-y-2 justify-center items-center bg-white z-10 rounded border-[#EA428B] border-[8px]"
+    >
+      <Icon
+        name="mdi:close"
+        class="z-50 close absolute lg:top-4 lg:left-4 top-2 left-2 text-4xl lg:text-6xl text-[#132248] cursor-pointer hover:bg-[#CC9CDF] rounded duration-300"
+      />
+      <div
+        id="fade1"
+        class="mx-0 text-xl lg:text-3xl my-0 lg:my-2 text-center w-full font-semibold"
+      >
+        What I'm Reading
+      </div>
+      <div
+        id="fade2"
+        class="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-6 xl:grid-cols-6 lg:gap-x-6 lg:gap-y-4 md:gap-x-4 md:gap-y-3 gap-x-3 gap-y-2"
+      >
+        <Book
+          src={img3}
+          title="An Introduction to Measure Theory"
+          author="Terence Tao"
+          progress={0.1}
+        />
+        <Book
+          src={img13}
+          title="All of Nonparametric Statistics"
+          author="Larry Wasserman"
+          progress={0.4}
+        />
+        <Book
+          src={img14}
+          title="Fractional Calculus"
+          author="Richard Herrmann"
+          progress={0.2}
+        />
+        <Book
+          src={img16}
+          title="High-Dimensional Statistics"
+          author="Martin J. Wainwright"
+          progress={0.4}
+        />
+        <Book
+          src={img20}
+          title="The Riemann Hypothesis"
+          author="Peter Borwein, et. al."
+          progress={0.2}
+        />
+        <Book
+          src={img21}
+          title="Topics in Random Matrix Theory"
+          author="Terence Tao"
+          progress={0.1}
+        />
+      </div>
+      <div
+        id="fade3"
+        class="mx-0 text-lg lg:text-2xl my-0 lg:my-2 text-center w-full font-semibold"
+      >
+        What I've Read (2020 &ndash; present)
+      </div>
+      <div
+        id="fade4"
+        class="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-6 xl:grid-cols-6 lg:gap-x-6 lg:gap-y-4 md:gap-x-4 md:gap-y-3 gap-x-3 gap-y-2"
+      >
+        <Book
+          src={img8}
+          title="English After RP: Standard British Pronunciation Today"
+          author="Geoff Lindsey"
+          progress={1.0}
+        />
+        <Book
+          src={img7}
+          title="Inside Interesting Integrals"
+          author="Paul J. Nahin"
+          progress={1.0}
+        />
+        <Book
+          src={img18}
+          title="Silman's Complete Endgame Course"
+          author="Jeremy Silman"
+          progress={1.0}
+        />
+        <Book
+          src={img10}
+          title="Algebraic Geometry and Statistical Learning Theory"
+          author="Sumio Watanabe"
+          progress={1.0}
+        />
+        <Book
+          src={img12}
+          title="All of Statistics"
+          author="Larry Wasserman"
+          progress={1.0}
+        />
+        <Book
+          src={img15}
+          title="Visual Differential Geometry and Forms"
+          author="Tristan Needham"
+          progress={1.0}
+        />
+        <Book
+          src={img2}
+          title="How to Reassess Your Chess"
+          author="Jeremy Silman"
+          progress={1.0}
+        />
+        <Book
+          src={img19}
+          title="The Knot Book"
+          author="Colin C. Adams"
+          progress={1.0}
+        />
+        <Book
+          src={img23}
+          title="Quantum Computation and Quantum Information"
+          author="Isaac Chuang, Michael Nielsen"
+          progress={1.0}
+        />
+        <Book
+          src={img27}
+          title="Algebraic Graph Theory"
+          author="Chris Godsil, Gordon Royle"
+          progress={1.0}
+        />
+        <Book
+          src={img29}
+          title="Introduction to the Theory of Distributions"
+          author="G. Friedlander, M. Joshi"
+          progress={1.0}
+        />
+        <Book
+          src={img9}
+          title="Special Functions of Mathematics for Engineers"
+          author="Larry C. Andrews"
+          progress={1.0}
+        />
+      </div>
+    </div>
+  </div>
+</div>
+
+<style lang="scss">
+  @keyframes profile-page__jump {
+    0% {
+      transform: scale(0) rotate(-1deg);
+    }
+    50% {
+      transform: scale(1.2) rotate(-1deg);
+    }
+    100% {
+      transform: scale(1) rotate(-1deg);
+    }
+  }
+
+  @keyframes profile-page__jump-card {
+    0% {
+      transform: scale(0) rotate(-1deg);
+    }
+    50% {
+      transform: scale(1.1) rotate(-1deg);
+    }
+    100% {
+      transform: scale(1) rotate(-1deg);
+    }
+  }
+</style>

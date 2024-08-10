@@ -1,0 +1,331 @@
+---
+import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
+import pfp from "../assets/pfp.png";
+
+import ai from "../assets/img/15ai.png";
+import marefair from "../assets/img/marefair.png";
+import baltimare from "../assets/img/baltimare.png";
+import teaser from "../assets/img/teaser.png";
+import harmonycon from "../assets/img/harmonycon.png";
+import mlptf from "../assets/img/mlptf.png";
+import ponybest from "../assets/img/ponybest.png";
+import fallenoak from "../assets/img/fallenoak.png";
+---
+
+<div class="about absolute" id="credits-page" style="visibility: hidden;">
+  <div
+    class="flex items-center justify-center max-w-screen max-h-screen w-screen h-screen bg-white"
+    style="background-image: url(/bg/2768563.avif);  background-repeat: no-repeat; background-size: cover; background-position: top center;
+          transform-origin: right top;"
+  >
+    <div
+      id="card-about"
+      style="filter: drop-shadow(0 5px 5px #000);  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/PjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuXzR4S2lCcSIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgd2lkdGg9IjY1IiBoZWlnaHQ9IjY1IiBwYXR0ZXJuVHJhbnNmb3JtPSJyb3RhdGUoNDUpIj48bGluZSB4MT0iMCIgeT0iMCIgeDI9IjAiIHkyPSI2NSIgc3Ryb2tlPSIjQ0M5Q0RGIiBzdHJva2Utd2lkdGg9IjMwIi8+PC9wYXR0ZXJuPjwvZGVmcz4gPHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuXzR4S2lCcSkiIG9wYWNpdHk9IjAuMjUiLz48L3N2Zz4=');"
+      class="w-11/12 lg:w-288 px-4 py-4 lg:p-8 flex flex-col gap-y-2 lg:gap-y-4 justify-center items-center bg-white z-10 rounded border-[#652D87] border-[8px]"
+    >
+      <Icon
+        name="mdi:close"
+        class="z-50 close absolute lg:top-4 lg:left-4 top-2 left-2 text-4xl lg:text-6xl text-[#132248] cursor-pointer hover:bg-[#CC9CDF] rounded duration-300"
+      />
+      <Image
+        id="pfp"
+        format="avif"
+        src={pfp}
+        width={200}
+        alt="Profile pic"
+        class="rounded-full w-32 border-black border-2"
+      />
+      <div class="flex flex-col items-center">
+        <div id="intro" class="flex flex-col items-center">
+          <div class="text-4xl font-semibold" id="name">15</div>
+          <div class="text-sm" id="title">
+            Professional Twilight Sparkle enjoyer
+          </div>
+          <div
+            id="socials"
+            class="text-2xl mt-2 flex items-center justify-center gap-x-3"
+          >
+            <a
+              href="https://twitter.com/fifteenai"
+              target="_blank"
+              class="hover:text-[#1da1f2] duration-300 cursor-pointer"
+            >
+              <Icon name="mdi:twitter" /></a
+            >
+            <!-- <a
+              href="https://www.facebook.com/FallenOakEquineRescue"
+              target="_blank"
+              class="hover:text-[#7289da] duration-300 cursor-pointer"
+            >
+              <Icon name="mdi:discord" /></a
+            > -->
+            <a
+              href="mailto:fifteenai15@gmail.com"
+              target="_blank"
+              class="hover:text-[#aaa] duration-300 cursor-pointer"
+            >
+              <Icon name="mdi:email" /></a
+            >
+            <a
+              href="https://steamcommunity.com/id/fifteenai/"
+              target="_blank"
+              class="hover:text-[#1b2838] duration-300 cursor-pointer"
+            >
+              <Icon name="mdi:steam" /></a
+            >
+            <a
+              href="https://www.chess.com/member/tenfive15"
+              target="_blank"
+              class="hover:text-[#69923e] duration-300 cursor-pointer"
+            >
+              <Icon name="mdi:chess-pawn" /></a
+            >
+            <a
+              href="https://github.com/15"
+              target="_blank"
+              class="hover:text-[#6e5494] duration-300 cursor-pointer"
+            >
+              <Icon name="mdi:github" /></a
+            >
+            <a
+              href="https://www.faceit.com/en/players/15_"
+              target="_blank"
+              class="hover:text-[#FF5500] duration-300 cursor-pointer"
+            >
+              <Icon name="simple-icons:faceit" /></a
+            >
+          </div>
+        </div>
+        <div
+          id="projects"
+          class="w-full mt-4 sm:mt-8 text-base flex flex-col gap-y-2"
+        >
+          <div class="text-base sm:text-2xl font-semibold tracking-wide">
+            Stuff I've worked on
+          </div>
+          <div
+            class="grid grid-cols-2 sm:grid-cols-3 gap-x-4 gap-y-1.5 sm:gap-x-8 sm:gap-y-4"
+          >
+            <a
+              target="_blank"
+              href="https://wikipedia.org/wiki/15.ai"
+              class="bg-no-repeat bg-center bg-cover shadow shadow-white relative min-w-36 max-w-36 h-24 lg:min-w-48 lg:max-w-48 lg:h-32 bg-transparent rounded-lg hover:-rotate-3 hover:scale-[1.05] duration-300"
+            >
+              <Image
+                src={ai}
+                alt="15.ai"
+                format="avif"
+                width={200}
+                class="object-cover rounded-lg h-full"
+              />
+              <div
+                class="p-2 absolute opacity-75 hover:opacity-35 duration-300 bg-black w-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-full rounded-lg text-black flex flex-col items-center justify-center cursor-pointer"
+              >
+                <Icon
+                  name="mdi:keyboard-voice"
+                  class="z-50 text-5xl text-white"
+                />
+                <span
+                  class="text-2xs sm:text-xs text-white text-center tracking-wide"
+                  >15.ai</span
+                >
+              </div>
+            </a>
+            <a
+              target="_blank"
+              href="https://marefair.org/"
+              class="bg-no-repeat bg-center bg-cover shadow shadow-white relative min-w-36 max-w-36 h-24 lg:min-w-48 lg:max-w-48 lg:h-32 bg-transparent rounded-lg hover:-rotate-3 hover:scale-[1.05] duration-300"
+            >
+              <Image
+                src={marefair}
+                alt="Mare Fair 2024"
+                format="avif"
+                width={200}
+                class="object-cover rounded-lg h-full"
+              />
+              <div
+                class="p-2 absolute opacity-75 hover:opacity-35 duration-300 bg-black w-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-full rounded-lg text-black flex flex-col items-center justify-center cursor-pointer"
+              >
+                <Icon
+                  name="mdi:people-group"
+                  class="z-50 text-5xl text-white"
+                />
+                <span
+                  class="text-2xs sm:text-xs text-white text-center tracking-wide"
+                  >Mare Fair 2024</span
+                >
+              </div>
+            </a>
+            <a
+              target="_blank"
+              href="https://mlp.tf/"
+              class="bg-no-repeat bg-center bg-cover shadow shadow-white relative min-w-36 max-w-36 h-24 lg:min-w-48 lg:max-w-48 lg:h-32 bg-transparent rounded-lg hover:rotate-3 hover:scale-[1.05] duration-300"
+            >
+              <Image
+                src={mlptf}
+                alt="mlp.tf"
+                format="avif"
+                width={200}
+                class="object-cover rounded-lg h-full"
+              />
+              <div
+                class="p-2 absolute opacity-75 hover:opacity-35 duration-300 bg-black w-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-full rounded-lg text-black flex flex-col items-center justify-center cursor-pointer"
+              >
+                <Icon
+                  name="mdi:gamepad-classic-outline"
+                  class="z-50 text-5xl text-white"
+                />
+                <span
+                  class="text-2xs sm:text-xs text-white text-center tracking-wide"
+                  >mlp.tf</span
+                >
+              </div>
+            </a>
+            <a
+              target="_blank"
+              href="https://baltimare.org/"
+              class="bg-no-repeat bg-center bg-cover shadow shadow-white relative min-w-36 max-w-36 h-24 lg:min-w-48 lg:max-w-48 lg:h-32 bg-transparent rounded-lg hover:-rotate-3 hover:scale-[1.05] duration-300"
+            >
+              <Image
+                src={baltimare}
+                alt="Baltimare OPG"
+                format="avif"
+                width={200}
+                class="object-cover rounded-lg h-full"
+              />
+              <div
+                class="p-2 absolute opacity-75 hover:opacity-35 duration-300 bg-black w-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-full rounded-lg text-black flex flex-col items-center justify-center cursor-pointer"
+              >
+                <Icon name="mdi:house" class="z-50 text-5xl text-white" />
+                <span
+                  class="text-2xs sm:text-xs text-white text-center tracking-wide"
+                  >Baltimare OPG</span
+                >
+              </div>
+            </a>
+            <a
+              target="_blank"
+              href="https://pony.best/"
+              class="bg-no-repeat bg-center bg-cover shadow shadow-white relative min-w-36 max-w-36 h-24 lg:min-w-48 lg:max-w-48 lg:h-32 bg-transparent rounded-lg hover:-rotate-3 hover:scale-[1.05] duration-300"
+            >
+              <Image
+                src={ponybest}
+                alt="pony.best"
+                format="avif"
+                width={200}
+                class="object-cover rounded-lg h-full"
+              /><div
+                class="p-2 absolute opacity-75 hover:opacity-35 duration-300 bg-black w-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-full rounded-lg text-black flex flex-col items-center justify-center cursor-pointer"
+              >
+                <Icon name="mdi:star" class="z-50 text-5xl text-white" />
+                <span
+                  class="text-2xs sm:text-xs text-white text-center tracking-wide"
+                  >pony.best</span
+                >
+              </div>
+            </a>
+            <a
+              target="_blank"
+              href="https://fallenoak.org/"
+              class="bg-no-repeat bg-center bg-cover shadow shadow-white relative min-w-36 max-w-36 h-24 lg:min-w-48 lg:max-w-48 lg:h-32 bg-transparent rounded-lg hover:rotate-3 hover:scale-[1.05] duration-300"
+            >
+              <Image
+                src={fallenoak}
+                alt="Fallen Oak Equine Rescue and Rehabilitation"
+                format="avif"
+                width={200}
+                class="object-cover rounded-lg h-full"
+              />
+              <div
+                class="p-2 absolute opacity-75 hover:opacity-35 duration-300 bg-black w-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-full rounded-lg text-black flex flex-col items-center justify-center cursor-pointer"
+              >
+                <Icon name="mdi:horse" class="z-50 text-5xl text-white" />
+                <span
+                  class="text-2xs sm:text-xs text-white text-center tracking-wide"
+                  >Fallen Oak Equine Rescue and Rehabilitation</span
+                >
+              </div>
+            </a>
+            <a
+              target="_blank"
+              href="https://teaser.harmonycon.org/"
+              class="bg-no-repeat bg-center bg-cover shadow shadow-white relative min-w-36 max-w-36 h-24 lg:min-w-48 lg:max-w-48 lg:h-32 bg-transparent rounded-lg hover:-rotate-3 hover:scale-[1.05] duration-300"
+            >
+              <Image
+                src={teaser}
+                alt="HarmonyCon 2025 Teaser"
+                format="avif"
+                width={200}
+                class="object-cover rounded-lg h-full"
+              />
+              <div
+                class="p-2 absolute opacity-75 hover:opacity-35 duration-300 bg-black w-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-full rounded-lg text-black flex flex-col items-center justify-center cursor-pointer"
+              >
+                <Icon
+                  name="mdi:people-group"
+                  class="z-50 text-5xl text-white"
+                />
+                <span
+                  class="text-2xs sm:text-xs text-white text-center tracking-wide"
+                  >HarmonyCon 2025 Teaser</span
+                >
+              </div>
+            </a>
+            <a
+              target="_blank"
+              href="https://harmonycon.org/"
+              class="bg-no-repeat bg-center bg-cover shadow shadow-white relative min-w-36 max-w-36 h-24 lg:min-w-48 lg:max-w-48 lg:h-32 bg-transparent rounded-lg hover:-rotate-3 hover:scale-[1.05] duration-300"
+            >
+              <Image
+                src={harmonycon}
+                alt="HarmonyCon 2025"
+                format="avif"
+                width={200}
+                class="object-cover rounded-lg h-full"
+              />
+              <div
+                class="p-2 absolute opacity-75 hover:opacity-35 duration-300 bg-black w-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-full rounded-lg text-black flex flex-col items-center justify-center cursor-pointer"
+              >
+                <Icon
+                  name="mdi:people-group"
+                  class="z-50 text-5xl text-white"
+                />
+                <span
+                  class="text-2xs sm:text-xs text-white text-center tracking-wide"
+                  >HarmonyCon 2025</span
+                >
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style lang="scss">
+  @keyframes profile-page__jump {
+    0% {
+      transform: scale(0) rotate(-1deg);
+    }
+    50% {
+      transform: scale(1.2) rotate(-1deg);
+    }
+    100% {
+      transform: scale(1) rotate(-1deg);
+    }
+  }
+
+  @keyframes profile-page__jump-card {
+    0% {
+      transform: scale(0) rotate(-1deg);
+    }
+    50% {
+      transform: scale(1.1) rotate(-1deg);
+    }
+    100% {
+      transform: scale(1) rotate(-1deg);
+    }
+  }
+</style>

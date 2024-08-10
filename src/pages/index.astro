@@ -1,0 +1,376 @@
+---
+import Main from "../components/Main.astro";
+import About from "../components/Credits.astro";
+import Books from "../components/Books.astro";
+import Credits from "../components/About.astro";
+import Loader from "../components/Loader.astro";
+import { Icon } from "astro-icon/components";
+
+import { getImage } from "astro:assets";
+
+import screenshot from "../assets/screenshot.jpg";
+import pfp from "../assets/pfp.png";
+
+const optimizedScreenshot = await getImage({
+  src: screenshot,
+  format: "avif",
+  width: 400,
+});
+
+const optimizedPfp = await getImage({
+  src: pfp,
+  format: "avif",
+  width: 100,
+});
+
+import about from "../assets/nav/about.png";
+import books from "../assets/nav/books.png";
+import credits from "../assets/nav/credits.png";
+
+const optimizedAbout = await getImage({
+  src: about,
+  format: "avif",
+  width: 250,
+});
+const optimizedBooks = await getImage({
+  src: books,
+  format: "avif",
+  width: 250,
+});
+const optimizedCredits = await getImage({
+  src: credits,
+  format: "avif",
+  width: 250,
+});
+
+import mlp from "../assets/mlp.png";
+const optimizedLogo = await getImage({
+  src: mlp,
+  format: "avif",
+  width: 600,
+});
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.png" />
+    <meta property="og:title" content="✨ Twilight Sparkle" />
+    <meta
+      property="og:description"
+      content="Twilight Sparkle is the best pony!"
+    />
+    <meta property="og:image" content="/1379325.gif" />
+    <meta property="og:image:width" content="2249" />
+    <meta property="og:image:height" content="2666" />
+    <meta property="og:url" content="https://pony.best" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="pony.best" />
+    <meta property="og:image:alt" content="✨ Twilight Sparkle" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="✨ Twilight Sparkle" />
+    <meta
+      name="twitter:description"
+      content="Twilight Sparkle is the best pony!"
+    />
+    <meta name="twitter:image" content="/1379325.gif" />
+    <meta name="description" content="Twilight Sparkle is the best pony!" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <title>✨ Twilight Sparkle</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700"
+      rel="stylesheet"
+    />
+    <link
+      rel="preload"
+      href="/bg/2766796.avif"
+      as="image"
+      type="image/avif"
+      fetchpriority="high"
+    />
+    <link
+      rel="preload"
+      href={optimizedAbout.src}
+      as="image"
+      type="image/avif"
+      fetchpriority="high"
+    />
+    <link
+      rel="preload"
+      href={optimizedBooks.src}
+      as="image"
+      type="image/avif"
+      fetchpriority="high"
+    />
+    <link
+      rel="preload"
+      href={optimizedCredits.src}
+      as="image"
+      type="image/avif"
+      fetchpriority="high"
+    />
+    <link
+      rel="preload"
+      href={optimizedLogo.src}
+      as="image"
+      type="image/avif"
+      fetchpriority="high"
+    />
+    <link
+      rel="preload"
+      href="/bg/367040.avif"
+      as="image"
+      type="image/avif"
+      fetchpriority="high"
+    />
+    <link
+      rel="preload"
+      href="/bg/2767258.avif"
+      as="image"
+      type="image/avif"
+      fetchpriority="high"
+    />
+    <link
+      rel="preload"
+      href="/bg/2768563.avif"
+      as="image"
+      type="image/avif"
+      fetchpriority="high"
+    />
+    <link
+      rel="preload"
+      href={optimizedScreenshot.src}
+      as="image"
+      type="image/avif"
+      fetchpriority="low"
+    />
+    <link
+      rel="preload"
+      href={optimizedPfp.src}
+      as="image"
+      type="image/avif"
+      fetchpriority="low"
+    />
+  </head>
+  <body>
+    <!-- <div
+      class="opacity-100 z-10 absolute top-4 left-1/2 transform -translate-x-1/2 md:left-auto md:translate-x-0 md:top-4 md:right-4 text-3xl cursor-pointer p-2 hover:bg-pink-400 text-[#ea428b] duration-500 rounded hover:text-white"
+      id="sound"
+    >
+      <Icon name="charm:sound-up" id="sound-on" class="block" />
+      <Icon name="charm:sound-mute" id="sound-off" class="hidden" />
+    </div> -->
+    <Main />
+    <About />
+    <Books />
+    <Credits />
+    <Loader />
+  </body>
+</html>
+
+<script>
+  // import { Howl } from "howler";
+
+  // const click = new Howl({
+  //   src: ["/audio/click.mp3"],
+  //   volume: 0.15,
+  // });
+
+  // const magicstart = new Howl({
+  //   src: ["/audio/magicstart.mp3"],
+  //   volume: 0.03,
+  // });
+
+  // const magic = new Howl({
+  //   src: ["/audio/magicnormalized.mp3"],
+  //   volume: 0.03,
+  //   loop: true,
+  // });
+
+  // let muted = false;
+
+  // const mute = () => {
+  //   click.volume(0);
+  //   magicstart.volume(0);
+  //   magic.volume(0);
+
+  //   muted = true;
+  //   document.getElementById("sound-on").classList.remove("block");
+  //   document.getElementById("sound-off").classList.remove("hidden");
+  //   document.getElementById("sound-on").classList.add("hidden");
+  //   document.getElementById("sound-off").classList.add("block");
+  // };
+
+  // const unmute = () => {
+  //   click.volume(0.15);
+  //   magicstart.volume(0.03);
+  //   magic.volume(0.03);
+  //   muted = false;
+
+  //   document.getElementById("sound-on").classList.remove("hidden");
+  //   document.getElementById("sound-off").classList.remove("block");
+  //   document.getElementById("sound-on").classList.add("block");
+  //   document.getElementById("sound-off").classList.add("hidden");
+  // };
+
+  // document.getElementById("sound").addEventListener("click", () => {
+  //   muted ? unmute() : mute();
+  //   click.play();
+  // });
+
+  const about = document.getElementById("about");
+  const books = document.getElementById("books");
+  const credits = document.getElementById("credits");
+  const $loader = document.querySelector(".loader");
+  const mainPageDiv = document.getElementById("main-page");
+  const aboutDiv = document.getElementById("about-page");
+  const creditsDiv = document.getElementById("credits-page");
+  const booksDiv = document.getElementById("books-page");
+  const nav = document.querySelector(".main-page__nav");
+
+  // [about, books, credits].forEach((x) => {
+  //   x.addEventListener("mouseover", () => {
+  //     magicstart.stop();
+  //     magic.stop();
+  //     magicstart.play();
+  //     magic.play();
+  //   });
+  //   x.addEventListener("mouseout", () => {
+  //     magicstart.stop();
+  //     magic.stop();
+  //   });
+  // });
+
+  window.onload = function () {
+    $loader.classList.remove("loader--active");
+  };
+
+  credits.addEventListener("click", (e) => {
+    $loader.classList.add("loader--active");
+    document.title = "✨ Twilight Sparkle | Credits";
+    window.setTimeout(() => {
+      nav.style.visibility = "hidden";
+    }, 750);
+
+    window.setTimeout(() => {
+      $loader.classList.remove("loader--active");
+      creditsDiv.style.visibility = "visible";
+      mainPageDiv.style.visibility = "hidden";
+      document.getElementById("pfp").style = `transform: scale(0);
+        animation: profile-page__jump 0.6s cubic-bezier(0.77, 0.01, 0.25, 1) 0.8s forwards;`;
+
+      document.getElementById("card-about").style =
+        `transform: scale(0) rotate(-1deg); filter: drop-shadow(0 5px 5px #000);
+        background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/PjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuXzR4S2lCcSIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgd2lkdGg9IjY1IiBoZWlnaHQ9IjY1IiBwYXR0ZXJuVHJhbnNmb3JtPSJyb3RhdGUoNDUpIj48bGluZSB4MT0iMCIgeT0iMCIgeDI9IjAiIHkyPSI2NSIgc3Ryb2tlPSIjQ0M5Q0RGIiBzdHJva2Utd2lkdGg9IjMwIi8+PC9wYXR0ZXJuPjwvZGVmcz4gPHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuXzR4S2lCcSkiIG9wYWNpdHk9IjAuMjUiLz48L3N2Zz4=');
+        animation: profile-page__jump-card 1.2s cubic-bezier(0.77, 0.01, 0.25, 1) 0.6s forwards;`;
+
+      document.getElementById("intro").style = `transform: scale(0);
+        animation: profile-page__jump 0.6s cubic-bezier(0.77, 0.01, 0.25, 1) 1s forwards;`;
+
+      document.getElementById("projects").style =
+        `opacity: 0; animation: fadein 1s ease 1.6s forwards;`;
+    }, 1500);
+  });
+
+  about.addEventListener("click", (e) => {
+    $loader.classList.add("loader--active");
+    document.title = "✨ Twilight Sparkle | About";
+    window.setTimeout(() => {
+      nav.style.visibility = "hidden";
+    }, 750);
+
+    window.setTimeout(() => {
+      $loader.classList.remove("loader--active");
+      aboutDiv.style.visibility = "visible";
+      mainPageDiv.style.visibility = "hidden";
+
+      document.getElementById("card-credits").style =
+        `transform: scale(0) rotate(-1deg); filter: drop-shadow(0 5px 5px #000);
+        background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/PjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuXzR4S2lCcSIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgd2lkdGg9IjY1IiBoZWlnaHQ9IjY1IiBwYXR0ZXJuVHJhbnNmb3JtPSJyb3RhdGUoNDUpIj48bGluZSB4MT0iMCIgeT0iMCIgeDI9IjAiIHkyPSI2NSIgc3Ryb2tlPSIjQ0M5Q0RGIiBzdHJva2Utd2lkdGg9IjMwIi8+PC9wYXR0ZXJuPjwvZGVmcz4gPHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuXzR4S2lCcSkiIG9wYWNpdHk9IjAuMjUiLz48L3N2Zz4=');
+        animation: profile-page__jump-card 1.2s cubic-bezier(0.77, 0.01, 0.25, 1) 0.6s forwards;`;
+
+      document.getElementById("screenshot").style =
+        `opacity: 0; animation: fadein 1s ease 1.0s forwards;`;
+
+      document.getElementById("description").style =
+        `opacity: 0; animation: fadein 1s ease 1.2s forwards;`;
+    }, 1500);
+  });
+
+  books.addEventListener("click", (e) => {
+    $loader.classList.add("loader--active");
+    document.title = "✨ Twilight Sparkle | Books";
+    window.setTimeout(() => {
+      nav.style.visibility = "hidden";
+    }, 750);
+
+    window.setTimeout(() => {
+      $loader.classList.remove("loader--active");
+      booksDiv.style.visibility = "visible";
+      mainPageDiv.style.visibility = "hidden";
+
+      document.getElementById("card-books").style =
+        `transform: scale(0) rotate(-1deg); filter: drop-shadow(0 5px 5px #000);
+        background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/PjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuXzR4S2lCcSIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgd2lkdGg9IjY1IiBoZWlnaHQ9IjY1IiBwYXR0ZXJuVHJhbnNmb3JtPSJyb3RhdGUoNDUpIj48bGluZSB4MT0iMCIgeT0iMCIgeDI9IjAiIHkyPSI2NSIgc3Ryb2tlPSIjQ0M5Q0RGIiBzdHJva2Utd2lkdGg9IjMwIi8+PC9wYXR0ZXJuPjwvZGVmcz4gPHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuXzR4S2lCcSkiIG9wYWNpdHk9IjAuMjUiLz48L3N2Zz4=');
+        animation: profile-page__jump-card 1.2s cubic-bezier(0.77, 0.01, 0.25, 1) 0.6s forwards;`;
+
+      document.getElementById("fade1").style =
+        `opacity: 0; animation: fadein 1s ease 1.0s forwards;`;
+
+      document.getElementById("fade2").style =
+        `opacity: 0; animation: fadein 1s ease 1.2s forwards;`;
+
+      document.getElementById("fade3").style =
+        `opacity: 0; animation: fadein 1s ease 1.4s forwards;`;
+
+      document.getElementById("fade4").style =
+        `opacity: 0; animation: fadein 1s ease 1.6s forwards;`;
+    }, 1500);
+  });
+
+  document.querySelectorAll(".close").forEach((div) => {
+    div.addEventListener("click", (e) => {
+      $loader.classList.add("loader--active");
+      document.title = "✨ Twilight Sparkle";
+      window.setTimeout(() => {
+        nav.style.visibility = "visible";
+      }, 750);
+
+      window.setTimeout(() => {
+        $loader.classList.remove("loader--active");
+        aboutDiv.style.visibility = "hidden";
+        booksDiv.style.visibility = "hidden";
+        creditsDiv.style.visibility = "hidden";
+        mainPageDiv.style.visibility = "visible";
+      }, 1500);
+    });
+  });
+</script>
+
+<style>
+  html {
+    /* scrollbar-gutter: stable; */
+    overflow: hidden;
+  }
+
+  #sound {
+    animation-name: fadeIn;
+    animation-duration: 0.5s;
+    animation-delay: 4s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    animation-direction: normal;
+    opacity: 0;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+</style>

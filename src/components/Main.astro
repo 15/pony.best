@@ -1,0 +1,906 @@
+---
+import { Image, getImage } from "astro:assets";
+
+import about from "../assets/nav/about.png";
+import books from "../assets/nav/books.png";
+import credits from "../assets/nav/credits.png";
+
+import mlp from "../assets/mlp.png";
+---
+
+<div class="main-page" id="main-page" style="visibility: visible;">
+  <div class="main-page__bg"></div>
+  <div class="main-page__frame main-page__frame_type_1"></div>
+  <div class="main-page__twi">
+    <video
+      class="hidden lg:block"
+      id="hero-video"
+      aria-hidden="true"
+      playsinline
+      autoplay
+      muted
+      loop
+      preload="auto"
+      poster="/twi.webp"
+    >
+      <source id="webm-source" src="/twi.webm" type="video/webm" />
+    </video>
+    <img src="/twiresize.png" class="block lg:hidden" />
+  </div>
+  <div class="main-page__frame main-page__frame_type_2"></div>
+
+  <div class="main-page__mlp-logo">
+    <Image
+      src={mlp}
+      alt="My Little Pony: Friendship Is Magic logo"
+      width={600}
+      format="avif"
+    />
+  </div>
+  <div class="main-page__eye"></div>
+  <nav class="main-page__nav absolute w-64 flex flex-col gap-y-4">
+    <div
+      class="nav-li page-link cursor-pointer -skew-x-6 -rotate-6 opacity-75 hover:opacity-100 hover:translate-x-2 duration-300"
+      title="About"
+      id="about"
+    >
+      <Image
+        src={about}
+        alt="About"
+        width={250}
+        format="avif"
+        class="w-full -translate-x-full duration-300"
+        id="about-image"
+      />
+    </div>
+    <div
+      class="nav-li page-link cursor-pointer -skew-x-6 -rotate-6 opacity-75 hover:opacity-100 hover:translate-x-2 duration-300"
+      title="Books"
+      id="books"
+    >
+      <Image
+        src={books}
+        alt="Books"
+        width={250}
+        format="avif"
+        class="w-full -translate-x-full duration-300"
+        id="books-image"
+      />
+    </div>
+    <div
+      class="nav-li page-link cursor-pointer -skew-x-6 -rotate-6 opacity-75 hover:opacity-100 hover:translate-x-2 duration-300"
+      title="Credits"
+      id="credits"
+    >
+      <Image
+        src={credits}
+        alt="Credits"
+        width={250}
+        format="avif"
+        class="w-full -translate-x-full duration-300"
+        id="credits-image"
+      />
+    </div>
+  </nav>
+</div>
+
+<style lang="scss">
+  body,
+  html {
+    width: 100%;
+    height: 100%;
+    background-color: #f3e8ff;
+  }
+
+  $min-width: 1100px;
+  $min-height: 650px;
+
+  $theme-pink: #b46d95;
+  $theme-light-pink: #edc8cf;
+  $theme-light-blue: #adddf7;
+  $theme-light-orange: #efcec7;
+  $theme-light-yellow: #f7e4c6;
+  $theme-light-brown: #dbbeb6;
+  $theme-brown: #9b5b42;
+  $theme-light-purple: #c7b3d6;
+  $theme-light-green: #b7d7b6;
+
+  #about-image:hover,
+  #books-image:hover,
+  #credits-image:hover {
+    box-shadow: 0 0 25px 15px #ea428b;
+    opacity: 0.9;
+  }
+
+  @keyframes show {
+    from {
+      visibility: hidden;
+    }
+    to {
+      visibility: visible;
+    }
+  }
+
+  #about,
+  #books,
+  #credits {
+    visibility: hidden;
+    animation: show 0s ease 4s forwards;
+  }
+
+  @keyframes main-page__show-bg {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 0.3;
+    }
+  }
+
+  @keyframes main-page__show-frame {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(3.5deg);
+    }
+  }
+
+  @keyframes main-page__show-mlp-logo {
+    0% {
+      opacity: 0;
+      transform: translateY(50px); /* Start below the final position */
+    }
+    60% {
+      opacity: 1;
+      transform: translateY(-20px); /* Overshoot past the final position */
+    }
+    80% {
+      transform: translateY(10px); /* Bounce back below the final position */
+    }
+    90% {
+      transform: translateY(
+        -5px
+      ); /* Overshoot a little above the final position */
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0px); /* Settle into the final position */
+    }
+  }
+
+  @keyframes main-page__mlp {
+    0%,
+    70% {
+      transform: translateY(0px); /* Start below the final position */
+    }
+    85% {
+      transform: rotate(10deg) scale(1); /* Overshoot past the final position */
+    }
+    90% {
+      transform: rotate(-6deg) scale(1); /* Bounce back below the final position */
+    }
+    92.5% {
+      transform: rotate(4deg) scale(1); /* Overshoot a little above the final position */
+    }
+    95% {
+      transform: rotate(-4deg) scale(1);
+    }
+    100% {
+      transform: rotate(0); /* Settle into the final position */
+    }
+  }
+
+  @keyframes main-page__show-bg {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 0.3;
+    }
+  }
+
+  @keyframes main-page__show-frame__phone {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(5deg);
+    }
+  }
+
+  @keyframes main-page__show-frame__tablet {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(8deg);
+    }
+  }
+
+  @keyframes main-page__show-mlp-logo__tablet {
+    0% {
+      opacity: 0;
+      transform: translateY(50px); /* Start below the final position */
+    }
+    60% {
+      opacity: 1;
+      transform: translateY(-20px); /* Overshoot past the final position */
+    }
+    80% {
+      transform: translateY(10px); /* Bounce back below the final position */
+    }
+    90% {
+      transform: translateY(
+        -5px
+      ); /* Overshoot a little above the final position */
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0px); /* Settle into the final position */
+    }
+  }
+
+  /*** opacity ***/
+  @keyframes fadein {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @keyframes fadeout {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+  @keyframes slide-right {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0%);
+    }
+  }
+  @keyframes slide-left {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0%);
+    }
+  }
+  @keyframes slide-top {
+    0%,
+    7% {
+      transform: translateY(0%);
+    }
+    33%,
+    38% {
+      transform: translateY(30%);
+    }
+    60%,
+    70% {
+      transform: translateY(0%);
+    }
+    100% {
+      transform: translateY(100%);
+    }
+  }
+  @keyframes slide-bottom {
+    0%,
+    7% {
+      transform: translateY(0%);
+    }
+    33%,
+    38% {
+      transform: translateY(-30%);
+    }
+    60%,
+    70% {
+      transform: translateY(0%);
+    }
+    100% {
+      transform: translateY(-100%);
+    }
+  }
+
+  @keyframes unblur {
+    0%,
+    55% {
+      filter: blur(10px);
+    }
+    65% {
+      filter: blur(3px);
+    }
+    100% {
+      filter: blur(0px);
+    }
+  }
+
+  @keyframes turn1 {
+    from {
+      transform: rotate(0);
+    }
+    to {
+      transform: rotate(1turn);
+    }
+  }
+
+  @mixin pc-layout {
+    @media screen and (min-width: 1025px) {
+      @content;
+    }
+  }
+
+  @mixin tablet-layout {
+    @media screen and (min-width: 601px) and (max-width: 1024px) {
+      @content;
+    }
+  }
+
+  @mixin sp-layout {
+    @media screen and (max-width: 600px) {
+      @content;
+    }
+  }
+
+  @include pc-layout {
+    .main-page {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      min-width: $min-width;
+      min-height: $min-height;
+      background-color: #fff;
+      overflow: hidden;
+      z-index: 7;
+    }
+
+    .main-page__bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+
+      &::before,
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+      &::before {
+        background-image: url(/bg/2766796.avif);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        opacity: 0.5;
+      }
+      &::after {
+        background-image: url();
+        background-size: 200px;
+        opacity: 0;
+      }
+    }
+
+    .main-page__frame {
+      position: absolute;
+      width: 150%;
+      height: 48%;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.3) inset;
+      background-color: #f3e8ff;
+      transform: rotate(0deg);
+    }
+    .main-page__frame_type_1 {
+      top: -50%;
+      left: 0;
+      transform-origin: left bottom;
+    }
+    .main-page__frame_type_2 {
+      bottom: -50%;
+      right: 0;
+      transform-origin: right top;
+    }
+
+    .main-page__twi {
+      position: absolute;
+      top: 0;
+      right: 75px;
+      width: 100%;
+      height: 100%;
+      background-size: auto 120%;
+      background-position: center top;
+      background-repeat: no-repeat;
+      opacity: 0;
+    }
+
+    video {
+      @apply h-[120vh] absolute w-full min-h-full;
+    }
+
+    .main-page__mlp-logo {
+      position: absolute;
+      bottom: 30px;
+      right: 30px;
+
+      img {
+        display: block;
+        width: 450px;
+        opacity: 0;
+      }
+    }
+
+    .main-page__eye {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+
+      &::before,
+      &::after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 50%;
+        background-color: #000;
+      }
+      &::before {
+        transform: translateY(-100%);
+      }
+      &::after {
+        transform: translateY(100%);
+      }
+    }
+
+    .main-page__nav {
+      position: absolute;
+      top: 20%;
+      left: -10px;
+      // width: 300px;
+
+      // .nav-li {
+      //   display: block;
+      //   transition: all 0.35s ease 0s;
+      //   opacity: 0.75;
+
+      //   img {
+      //     display: block;
+      //     width: 100%;
+      //     transform: translateX(-100%);
+      //   }
+      // }
+      // .nav-li:hover {
+      //   transform: translateX(15px);
+      //   opacity: 1;
+      // }
+    }
+    .main-page {
+      .main-page__bg {
+        animation: unblur 5s ease-out forwards;
+        &::after {
+          animation: main-page__show-bg 0.05s ease 0.55s forwards;
+        }
+      }
+
+      .main-page__twi {
+        animation: fadein 0.05s ease 2.4s forwards;
+      }
+
+      .main-page__frame_type_1,
+      .main-page__frame_type_2 {
+        animation: main-page__show-frame 1s ease 4s forwards;
+      }
+
+      .main-page__mlp-logo img {
+        animation:
+          main-page__show-mlp-logo 1s ease 4.7s forwards,
+          main-page__mlp 4s ease 7s infinite forwards;
+      }
+
+      .main-page__eye {
+        &::before {
+          animation: slide-bottom 4s ease-in-out 0s alternate;
+        }
+        &::after {
+          animation: slide-top 4s ease-in-out 0s alternate;
+        }
+      }
+
+      .main-page__nav {
+        .nav-li:nth-child(1) img {
+          animation: slide-right 0.5s ease 4s forwards;
+        }
+        .nav-li:nth-child(2) img {
+          animation: slide-right 0.5s ease 4.1s forwards;
+        }
+        .nav-li:nth-child(3) img {
+          animation: slide-right 0.5s ease 4.2s forwards;
+        }
+      }
+    }
+  }
+
+  @include sp-layout {
+    .main-page {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      // min-width: 100vw;
+      // min-height: 100vh;
+      background-color: #fff;
+      overflow: hidden;
+      z-index: 7;
+    }
+
+    .main-page__bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+
+      &::before,
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+      &::before {
+        background-image: url(/bg/2766796.avif);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        opacity: 0.5;
+      }
+      &::after {
+        background-image: url();
+        background-size: 200px;
+        opacity: 0;
+      }
+    }
+
+    .main-page__frame {
+      position: absolute;
+      width: 150%;
+      height: 50%;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.3) inset;
+      background-color: #f3e8ff;
+      transform: rotate(0deg);
+    }
+    .main-page__frame_type_1 {
+      top: -50%;
+      left: 0;
+      transform-origin: left bottom;
+    }
+    .main-page__frame_type_2 {
+      bottom: -50%;
+      right: 0;
+      transform-origin: right top;
+    }
+
+    .main-page__twi {
+      position: absolute;
+      bottom: 0;
+      right: 10px;
+      width: 63vh;
+      height: auto;
+      // background-image: url(../twi.png);
+      // background-size: auto 90%;
+      // background-position: 110% bottom;
+      // background-repeat: no-repeat;
+      opacity: 0;
+    }
+
+    video {
+      @apply absolute bottom-0;
+
+      // background-size: auto 90%;
+      // background-position: 110% bottom;
+      // background-repeat: no-repeat;
+    }
+
+    .main-page__mlp-logo {
+      position: absolute;
+      width: 100%;
+      bottom: 20px;
+      left: 0px;
+
+      img {
+        display: block;
+        width: 70%;
+        margin: 0 auto;
+        // background-color: rgba(255, 255, 255, 0.7);
+        // box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        padding: 10px 25px;
+        opacity: 0;
+      }
+    }
+
+    .main-page__eye {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+
+      &::before,
+      &::after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 50%;
+        background-color: #000;
+      }
+      &::before {
+        transform: translateY(-100%);
+      }
+      &::after {
+        transform: translateY(100%);
+      }
+    }
+
+    .main-page__nav {
+      position: absolute;
+      top: 100px;
+      left: -10px;
+      width: 50%;
+
+      .nav-li {
+        display: block;
+
+        img {
+          display: block;
+          width: 100%;
+          transform: translateX(-100%);
+        }
+      }
+    }
+
+    .main-page {
+      .main-page__bg {
+        animation: unblur 5s ease-out forwards;
+        &::after {
+          animation: main-page__show-bg 0.05s ease 0.55s forwards;
+        }
+      }
+
+      .main-page__twi {
+        animation: fadein 0.05s ease 2.4s forwards;
+      }
+
+      .main-page__frame_type_1,
+      .main-page__frame_type_2 {
+        animation: main-page__show-frame__phone 1s ease 4s forwards;
+      }
+
+      .main-page__mlp-logo img {
+        animation:
+          main-page__show-mlp-logo__tablet 1s ease 4.7s forwards,
+          main-page__mlp 4s ease 7s infinite forwards;
+      }
+
+      .main-page__eye {
+        &::before {
+          animation: slide-bottom 4s ease-in-out 0s alternate;
+        }
+        &::after {
+          animation: slide-top 4s ease-in-out 0s alternate;
+        }
+      }
+
+      .main-page__nav {
+        .nav-li:nth-child(1) img {
+          animation: slide-right 0.5s ease 4s forwards;
+        }
+        .nav-li:nth-child(2) img {
+          animation: slide-right 0.5s ease 4.1s forwards;
+        }
+        .nav-li:nth-child(3) img {
+          animation: slide-right 0.5s ease 4.2s forwards;
+        }
+      }
+    }
+  }
+
+  @include tablet-layout {
+    .main-page {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #fff;
+      overflow: hidden;
+      z-index: 7;
+    }
+
+    /*** bg ***/
+    .main-page__bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+
+      &::before,
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+      &::before {
+        background-image: url(/bg/2766796.avif);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        opacity: 0.5;
+      }
+      &::after {
+        background-image: url();
+        background-size: 200px;
+        opacity: 0;
+      }
+    }
+
+    /*** frame ***/
+    .main-page__frame {
+      position: absolute;
+      width: 150%;
+      height: 50%;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.3) inset;
+      background-color: #f3e8ff;
+      transform: rotate(0deg);
+    }
+    .main-page__frame_type_1 {
+      top: -50%;
+      left: 0;
+      transform-origin: left bottom;
+    }
+    .main-page__frame_type_2 {
+      bottom: -50%;
+      right: 0;
+      transform-origin: right top;
+    }
+
+    .main-page__twi {
+      position: absolute;
+      bottom: 0;
+      left: 0px;
+      width: 70vh;
+      height: auto;
+      // background-image: url(../twi.png);
+      // background-size: auto 100%;
+      // background-position: -20% bottom;
+      // background-repeat: no-repeat;
+      opacity: 0;
+    }
+
+    video {
+      @apply absolute bottom-0;
+    }
+
+    .main-page__mlp-logo {
+      position: absolute;
+      width: auto;
+      bottom: 30px;
+      right: 0px;
+
+      img {
+        display: block;
+        width: 55%;
+        // margin: 0 auto;
+        padding: 10px 25px;
+        opacity: 0;
+        float: right;
+      }
+    }
+
+    .main-page__eye {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+
+      &::before,
+      &::after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 50%;
+        background-color: #000;
+      }
+      &::before {
+        transform: translateY(-100%);
+      }
+      &::after {
+        transform: translateY(100%);
+      }
+    }
+
+    .main-page__nav {
+      position: absolute;
+      top: 35%;
+      left: -10px;
+      width: 30%;
+
+      .nav-li {
+        display: block;
+
+        img {
+          display: block;
+          width: 100%;
+          transform: translateX(-100%);
+        }
+      }
+    }
+
+    .main-page {
+      .main-page__bg {
+        animation: unblur 5s ease-out forwards;
+        &::after {
+          animation: main-page__show-bg 0.05s ease 0.55s forwards;
+        }
+      }
+
+      .main-page__twi {
+        animation: fadein 0.05s ease 2.4s forwards;
+      }
+
+      .main-page__frame_type_1,
+      .main-page__frame_type_2 {
+        animation: main-page__show-frame__tablet 1s ease 4s forwards;
+      }
+
+      .main-page__mlp-logo img {
+        animation:
+          main-page__show-mlp-logo__tablet 1s ease 4.7s forwards,
+          main-page__mlp 4s ease 7s infinite forwards;
+      }
+
+      .main-page__eye {
+        &::before {
+          animation: slide-bottom 4s ease-in-out 0s alternate;
+        }
+        &::after {
+          animation: slide-top 4s ease-in-out 0s alternate;
+        }
+      }
+
+      .main-page__nav {
+        .nav-li:nth-child(1) img {
+          animation: slide-right 0.5s ease 4s forwards;
+        }
+        .nav-li:nth-child(2) img {
+          animation: slide-right 0.5s ease 4.1s forwards;
+        }
+        .nav-li:nth-child(3) img {
+          animation: slide-right 0.5s ease 4.2s forwards;
+        }
+      }
+    }
+  }
+</style>
