@@ -114,17 +114,17 @@ import mlp from "../assets/mlp.png";
 
   @keyframes show {
     from {
-      visibility: hidden;
+      z-index: -1;
     }
     to {
-      visibility: visible;
+      z-index: 10;
     }
   }
 
   #about,
   #books,
   #credits {
-    visibility: hidden;
+    z-index: -1;
     animation: show 0s ease 4s forwards;
   }
 
