@@ -1,7 +1,7 @@
 ---
 import Main from "../components/Main.astro";
 import About from "../components/Credits.astro";
-import Books from "../components/Books.astro";
+import Blog from "../components/Blog.astro";
 import Credits from "../components/About.astro";
 import Loader from "../components/Loader.astro";
 import { Icon } from "astro-icon/components";
@@ -10,6 +10,8 @@ import { getImage } from "astro:assets";
 
 import screenshot from "../assets/screenshot.jpg";
 import pfp from "../assets/pfp.png";
+
+import posts from "../data/blog.js";
 
 const optimizedScreenshot = await getImage({
   src: screenshot,
@@ -24,7 +26,7 @@ const optimizedPfp = await getImage({
 });
 
 import about from "../assets/nav/about.png";
-import books from "../assets/nav/books.png";
+import blog from "../assets/nav/books.png";
 import credits from "../assets/nav/credits.png";
 
 const optimizedAbout = await getImage({
@@ -32,8 +34,8 @@ const optimizedAbout = await getImage({
   format: "avif",
   width: 250,
 });
-const optimizedBooks = await getImage({
-  src: books,
+const optimizedBlog = await getImage({
+  src: blog,
   format: "avif",
   width: 250,
 });
@@ -99,7 +101,7 @@ const optimizedLogo = await getImage({
     />
     <link
       rel="preload"
-      href={optimizedBooks.src}
+      href={optimizedBlog.src}
       as="image"
       type="image/avif"
       fetchpriority="high"
@@ -155,93 +157,24 @@ const optimizedLogo = await getImage({
     />
   </head>
   <body>
-    <!-- <div
-      class="opacity-100 z-10 absolute top-4 left-1/2 transform -translate-x-1/2 md:left-auto md:translate-x-0 md:top-4 md:right-4 text-3xl cursor-pointer p-2 hover:bg-pink-400 text-[#ea428b] duration-500 rounded hover:text-white"
-      id="sound"
-    >
-      <Icon name="charm:sound-up" id="sound-on" class="block" />
-      <Icon name="charm:sound-mute" id="sound-off" class="hidden" />
-    </div> -->
     <Main />
     <About />
-    <Books />
+    <Blog />
     <Credits />
     <Loader />
   </body>
 </html>
 
-<script>
-  // import { Howl } from "howler";
-
-  // const click = new Howl({
-  //   src: ["/audio/click.mp3"],
-  //   volume: 0.15,
-  // });
-
-  // const magicstart = new Howl({
-  //   src: ["/audio/magicstart.mp3"],
-  //   volume: 0.03,
-  // });
-
-  // const magic = new Howl({
-  //   src: ["/audio/magicnormalized.mp3"],
-  //   volume: 0.03,
-  //   loop: true,
-  // });
-
-  // let muted = false;
-
-  // const mute = () => {
-  //   click.volume(0);
-  //   magicstart.volume(0);
-  //   magic.volume(0);
-
-  //   muted = true;
-  //   document.getElementById("sound-on").classList.remove("block");
-  //   document.getElementById("sound-off").classList.remove("hidden");
-  //   document.getElementById("sound-on").classList.add("hidden");
-  //   document.getElementById("sound-off").classList.add("block");
-  // };
-
-  // const unmute = () => {
-  //   click.volume(0.15);
-  //   magicstart.volume(0.03);
-  //   magic.volume(0.03);
-  //   muted = false;
-
-  //   document.getElementById("sound-on").classList.remove("hidden");
-  //   document.getElementById("sound-off").classList.remove("block");
-  //   document.getElementById("sound-on").classList.add("block");
-  //   document.getElementById("sound-off").classList.add("hidden");
-  // };
-
-  // document.getElementById("sound").addEventListener("click", () => {
-  //   muted ? unmute() : mute();
-  //   click.play();
-  // });
-
+<script define:vars={{posts}}>
   const about = document.getElementById("about");
-  const books = document.getElementById("books");
+  const blog = document.getElementById("blog");
   const credits = document.getElementById("credits");
   const $loader = document.querySelector(".loader");
   const mainPageDiv = document.getElementById("main-page");
   const aboutDiv = document.getElementById("about-page");
   const creditsDiv = document.getElementById("credits-page");
-  const booksDiv = document.getElementById("books-page");
+  const blogDiv = document.getElementById("blog-page");
   const nav = document.querySelector(".main-page__nav");
-
-  // [about, books, credits].forEach((x) => {
-  //   x.addEventListener("mouseover", () => {
-  //     magicstart.stop();
-  //     magic.stop();
-  //     magicstart.play();
-  //     magic.play();
-  //   });
-  //   x.addEventListener("mouseout", () => {
-  //     magicstart.stop();
-  //     magic.stop();
-  //   });
-  // });
 
   window.onload = function () {
     $loader.classList.remove("loader--active");
@@ -258,18 +191,11 @@ const optimizedLogo = await getImage({
       $loader.classList.remove("loader--active");
       creditsDiv.style.visibility = "visible";
       mainPageDiv.style.visibility = "hidden";
-      document.getElementById("pfp").style = ``;
 
       document.getElementById("card-about").style =
         `transform: scale(0) rotate(-1deg); filter: drop-shadow(0 5px 5px #000);
         background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/PjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuXzR4S2lCcSIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgd2lkdGg9IjY1IiBoZWlnaHQ9IjY1IiBwYXR0ZXJuVHJhbnNmb3JtPSJyb3RhdGUoNDUpIj48bGluZSB4MT0iMCIgeT0iMCIgeDI9IjAiIHkyPSI2NSIgc3Ryb2tlPSIjQ0M5Q0RGIiBzdHJva2Utd2lkdGg9IjMwIi8+PC9wYXR0ZXJuPjwvZGVmcz4gPHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuXzR4S2lCcSkiIG9wYWNpdHk9IjAuMjUiLz48L3N2Zz4=');
         animation: profile-page__jump-card 1.2s cubic-bezier(0.77, 0.01, 0.25, 1) 0.6s forwards;`;
-
-      document.getElementById("intro").style = `
-        `;
-
-      document.getElementById("projects").style =
-        ``;
     }, 1500);
   });
 
@@ -289,43 +215,25 @@ const optimizedLogo = await getImage({
         `transform: scale(0) rotate(-1deg); filter: drop-shadow(0 5px 5px #000);
         background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/PjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuXzR4S2lCcSIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgd2lkdGg9IjY1IiBoZWlnaHQ9IjY1IiBwYXR0ZXJuVHJhbnNmb3JtPSJyb3RhdGUoNDUpIj48bGluZSB4MT0iMCIgeT0iMCIgeDI9IjAiIHkyPSI2NSIgc3Ryb2tlPSIjQ0M5Q0RGIiBzdHJva2Utd2lkdGg9IjMwIi8+PC9wYXR0ZXJuPjwvZGVmcz4gPHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuXzR4S2lCcSkiIG9wYWNpdHk9IjAuMjUiLz48L3N2Zz4=');
         animation: profile-page__jump-card 1.2s cubic-bezier(0.77, 0.01, 0.25, 1) 0.6s forwards;`;
-
-      document.getElementById("screenshot").style =
-        ``;
-
-      document.getElementById("description").style =
-        ``;
     }, 1500);
   });
 
-  books.addEventListener("click", (e) => {
+  blog.addEventListener("click", (e) => {
     $loader.classList.add("loader--active");
-    document.title = "✨ Twilight Sparkle | Books";
+    document.title = "✨ Twilight Sparkle | Blog";
     window.setTimeout(() => {
       nav.style.visibility = "hidden";
     }, 750);
 
     window.setTimeout(() => {
       $loader.classList.remove("loader--active");
-      booksDiv.style.visibility = "visible";
+      blogDiv.style.visibility = "visible";
       mainPageDiv.style.visibility = "hidden";
 
-      document.getElementById("card-books").style =
+      document.getElementById("card-blog").style =
         `transform: scale(0) rotate(-1deg); filter: drop-shadow(0 5px 5px #000);
         background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/PjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuXzR4S2lCcSIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgd2lkdGg9IjY1IiBoZWlnaHQ9IjY1IiBwYXR0ZXJuVHJhbnNmb3JtPSJyb3RhdGUoNDUpIj48bGluZSB4MT0iMCIgeT0iMCIgeDI9IjAiIHkyPSI2NSIgc3Ryb2tlPSIjQ0M5Q0RGIiBzdHJva2Utd2lkdGg9IjMwIi8+PC9wYXR0ZXJuPjwvZGVmcz4gPHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuXzR4S2lCcSkiIG9wYWNpdHk9IjAuMjUiLz48L3N2Zz4=');
         animation: profile-page__jump-card 1.2s cubic-bezier(0.77, 0.01, 0.25, 1) 0.6s forwards;`;
-
-      document.getElementById("fade1").style =
-        ``;
-
-      document.getElementById("fade2").style =
-        ``;
-
-      document.getElementById("fade3").style =
-        ``;
-
-      document.getElementById("fade4").style =
-        ``;
     }, 1500);
   });
 
@@ -335,17 +243,42 @@ const optimizedLogo = await getImage({
       document.title = "✨ Twilight Sparkle";
       window.setTimeout(() => {
         nav.style.visibility = "visible";
+        document.getElementById("posts").style.visibility = "hidden";
       }, 750);
 
       window.setTimeout(() => {
         $loader.classList.remove("loader--active");
         aboutDiv.style.visibility = "hidden";
-        booksDiv.style.visibility = "hidden";
+        blogDiv.style.visibility = "hidden";
         creditsDiv.style.visibility = "hidden";
         mainPageDiv.style.visibility = "visible";
+        document.getElementById("content").style = `animation: none; opacity: 0`;
+        document.getElementById("posts").style = `animation: none; opacity: 1`;
       }, 1500);
     });
   });
+
+  document.querySelectorAll(".return").forEach((div) => {
+    div.addEventListener("click", (e) => {
+      document.getElementById("content").style = `z-index: 10; animation: fadeout 0.3s ease-in-out 0s forwards;`;
+      window.setTimeout(() => {
+        document.getElementById("posts").style = `z-index: 50; animation: fadein 0.3s ease-in-out 0s forwards;`;
+      }, 400)
+      });
+  });
+
+  posts.forEach((b, i) => {
+    const blogPost = document.getElementById(`post-${i}`);
+    blogPost.addEventListener("click", () => {
+      document.getElementById("posts").style = `z-index: 10; animation: fadeout 0.3s ease-in-out 0s forwards;`;
+      document.getElementById("post-title").innerHTML = b.title;
+      document.getElementById("post-date").innerHTML = b.date;
+      document.getElementById("post-content").innerHTML = b.content;
+      window.setTimeout(() => {
+        document.getElementById("content").style = `z-index: 50; animation: fadein 0.3s ease-in-out 0.0s forwards;`;
+      }, 400)
+    })
+  })
 </script>
 
 <style>

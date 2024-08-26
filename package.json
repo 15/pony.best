@@ -12,6 +12,7 @@
   "dependencies": {
     "@astrojs/sitemap": "^3.1.6",
     "@astrojs/tailwind": "^5.1.0",
+    "@iconify-json/carbon": "^1.1.37",
     "@iconify-json/mdi": "^1.1.68",
     "@iconify-json/simple-icons": "^1.1.112",
     "@playform/compress": "^0.0.13",
