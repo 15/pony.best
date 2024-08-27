@@ -1,14 +1,14 @@
 ---
 const { title = "Test", description="Lorem ipsum dolor sit amet", date="22 Aug 2024", id } = Astro.props;
 ---
-<div class="z-20 rounded border-2 cursor-pointer bg-white hover:bg-purple-200 duration-300  border-purple-800 w-208 h-32 p-6 flex justify-center flex-col" id={`post-${id}`}>
-    <div class="font-bold text-3xl">
+<div class="lg:gap-y-0 gap-y-0.5 z-20 rounded border-2 cursor-pointer bg-white hover:bg-purple-200 duration-300  border-purple-800 w-full lg:w-208 h-24 lg:h-32 px-3 py-1 lg:px-6 lg:py-6 flex justify-center flex-col" id={`post-${id}`}>
+    <div class="font-bold text-xl lg:text-3xl">
         { title }
     </div>
-    <div class="font-normal text-lg text-neutral-600 mt-0">
+    <div class="leading-none font-normal text-xs lg:text-lg text-neutral-600 mt-0">
         { description }
     </div>
-    <div class="text-sm mt-2">
+    <div class="text-xs lg:text-sm lg:mt-2">
         { date }
     </div>
 </div>

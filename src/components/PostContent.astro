@@ -2,19 +2,19 @@
 import { Icon } from "astro-icon/components";
 ---
 
-<div id="content" style="opacity: 0;" class="rounded absolute flex flex-col gap-y-2 w-2/3">
+<div id="content" style="opacity: 0;" class="rounded absolute flex flex-col gap-y-2 w-full lg:w-2/3 p-4">
     <Icon
       name="carbon:return"
-      class="p-1 mx-auto return text-center z-50 text-3xl lg:text-5xl text-[#132248] cursor-pointer hover:bg-[#CC9CDF] rounded duration-300"
+      class="p-1 mx-auto return text-center z-30 text-4xl lg:text-5xl text-[#132248] cursor-pointer hover:bg-[#CC9CDF] rounded duration-300"
     />
     
-    <div class="text-5xl font-bold text-center" id="post-title">
+    <div class="text-4xl lg:text-5xl font-bold text-center" id="post-title">
         Testing
     </div>
-    <div class="text-xl text-center text-black" >
+    <div class="text-base lg:text-xl text-center text-black" >
         Last updated <span class="text-neutral-600" id="post-date">August 22, 2024</span>
     </div>
-    <div class="text-lg mt-8" id="post-content">
+    <div class="text-base lg:text-lg mt-8" id="post-content">
 
     </div>
   </div>

@@ -184,13 +184,13 @@ const optimizedLogo = await getImage({
     $loader.classList.add("loader--active");
     document.title = "✨ Twilight Sparkle | Credits";
     window.setTimeout(() => {
-      nav.style.visibility = "hidden";
+      nav.style.display = "flex";
     }, 750);
 
     window.setTimeout(() => {
       $loader.classList.remove("loader--active");
-      creditsDiv.style.visibility = "visible";
-      mainPageDiv.style.visibility = "hidden";
+      creditsDiv.style.display = "block";
+      mainPageDiv.style.display = "none";
 
       document.getElementById("card-about").style =
         `transform: scale(0) rotate(-1deg); filter: drop-shadow(0 5px 5px #000);
@@ -203,13 +203,13 @@ const optimizedLogo = await getImage({
     $loader.classList.add("loader--active");
     document.title = "✨ Twilight Sparkle | About";
     window.setTimeout(() => {
-      nav.style.visibility = "hidden";
+      nav.style.display = "none";
     }, 750);
 
     window.setTimeout(() => {
       $loader.classList.remove("loader--active");
-      aboutDiv.style.visibility = "visible";
-      mainPageDiv.style.visibility = "hidden";
+      aboutDiv.style.display = "block";
+      mainPageDiv.style.display = "none";
 
       document.getElementById("card-credits").style =
         `transform: scale(0) rotate(-1deg); filter: drop-shadow(0 5px 5px #000);
@@ -222,13 +222,13 @@ const optimizedLogo = await getImage({
     $loader.classList.add("loader--active");
     document.title = "✨ Twilight Sparkle | Blog";
     window.setTimeout(() => {
-      nav.style.visibility = "hidden";
+      nav.style.display = "none";
     }, 750);
 
     window.setTimeout(() => {
       $loader.classList.remove("loader--active");
-      blogDiv.style.visibility = "visible";
-      mainPageDiv.style.visibility = "hidden";
+      blogDiv.style.display = "block";
+      mainPageDiv.style.display = "none";
 
       document.getElementById("card-blog").style =
         `transform: scale(0) rotate(-1deg); filter: drop-shadow(0 5px 5px #000);
@@ -241,17 +241,34 @@ const optimizedLogo = await getImage({
     div.addEventListener("click", (e) => {
       $loader.classList.add("loader--active");
       document.title = "✨ Twilight Sparkle";
+
+      document.querySelector(".main-page__bg").style.animation = "unblur 0s ease-out 0s forwards";
+      document.querySelector(".main-page__twi").style.animation = "fadein 0s ease 0s forwards";
+      document.querySelector(".main-page__frame_type_1").style.animation = "main-page__show-frame 0s ease 0s forwards";
+      document.querySelector(".main-page__frame_type_2").style.animation = "main-page__show-frame 0s ease 0s forwards";
+      document.querySelectorAll(".main-page__nav img").forEach(x => {
+        x.style.animation = 'slide-right 0s ease 0s forwards';
+      });
+      document.getElementById("about").style.animation = 'show 0s ease 0s forwards';
+      document.getElementById("blog").style.animation = 'show 0s ease 0s forwards';
+      document.getElementById("credits").style.animation = 'show 0s ease 0s forwards';
+      
+      document.querySelector(".main-page__mlp-logo img").style.animation = "main-page__mlp 4s ease 0s infinite forwards ";
+      document.querySelector(".main-page__mlp-logo img").style.opacity = 1.0;
+
+      document.documentElement.style.setProperty("--blink-time", "0s")
+
       window.setTimeout(() => {
-        nav.style.visibility = "visible";
-        document.getElementById("posts").style.visibility = "hidden";
+        nav.style.display = "flex";
+        document.getElementById("posts").style.display = "none";
       }, 750);
 
       window.setTimeout(() => {
         $loader.classList.remove("loader--active");
-        aboutDiv.style.visibility = "hidden";
-        blogDiv.style.visibility = "hidden";
-        creditsDiv.style.visibility = "hidden";
-        mainPageDiv.style.visibility = "visible";
+        aboutDiv.style.display = "none";
+        blogDiv.style.display = "none";
+        creditsDiv.style.display = "none";
+        mainPageDiv.style.display = "block";
         document.getElementById("content").style = `animation: none; opacity: 0`;
         document.getElementById("posts").style = `animation: none; opacity: 1`;
       }, 1500);

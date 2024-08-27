@@ -8,7 +8,7 @@ import credits from "../assets/nav/credits.png";
 import mlp from "../assets/mlp.png";
 ---
 
-<div class="main-page" id="main-page" style="visibility: visible;">
+<div class="main-page" id="main-page" style="">
   <div class="main-page__bg"></div>
   <div class="main-page__frame main-page__frame_type_1"></div>
   <div class="main-page__twi">
@@ -122,11 +122,15 @@ import mlp from "../assets/mlp.png";
   }
 
   #about,
-  #books,
+  #blog,
   #credits {
     z-index: -1;
     animation: show 0s ease 4s forwards;
   }
+
+:root {
+  --blink-time: 4s;
+}
 
   @keyframes main-page__show-bg {
     from {
@@ -512,10 +516,10 @@ import mlp from "../assets/mlp.png";
 
       .main-page__eye {
         &::before {
-          animation: slide-bottom 4s ease-in-out 0s alternate;
+          animation: slide-bottom var(--blink-time) ease-in-out 0s alternate;
         }
         &::after {
-          animation: slide-top 4s ease-in-out 0s alternate;
+          animation: slide-top var(--blink-time) ease-in-out 0s alternate;
         }
       }
 
@@ -700,10 +704,10 @@ import mlp from "../assets/mlp.png";
 
       .main-page__eye {
         &::before {
-          animation: slide-bottom 4s ease-in-out 0s alternate;
+          animation: slide-bottom var(--blink-time) ease-in-out 0s alternate;
         }
         &::after {
-          animation: slide-top 4s ease-in-out 0s alternate;
+          animation: slide-top var(--blink-time) ease-in-out 0s alternate;
         }
       }
 
@@ -883,10 +887,10 @@ import mlp from "../assets/mlp.png";
 
       .main-page__eye {
         &::before {
-          animation: slide-bottom 4s ease-in-out 0s alternate;
+          animation: slide-bottom var(--blink-time) ease-in-out 0s alternate;
         }
         &::after {
-          animation: slide-top 4s ease-in-out 0s alternate;
+          animation: slide-top var(--blink-time) ease-in-out 0s alternate;
         }
       }
 

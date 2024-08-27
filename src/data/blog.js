@@ -6,7 +6,7 @@ export default [
         date: "10 August 2024",
         content: `
         <div>
-
+        Twilight Sparkle is the best pony!
         </div>
         `
     },
@@ -39,7 +39,7 @@ export default [
             <li>HarmonyCon 2025</li>
             <li>BABSCon 2025</li>
         </ul>
-        If you spot me at one of these cons, feel free to say hi. I will be wearing a lanyard with the name "15" on it.
+        If you spot me at one of these cons, feel free to say hi!
         </div>
         `
     },
